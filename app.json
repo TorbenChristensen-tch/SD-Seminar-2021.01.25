@@ -1,0 +1,26 @@
+{
+  "id": "b042b4a9-caf0-4178-a5c2-e302b4be3ee5",
+  "name": "SD Seminar",
+  "publisher": "tch-it by Torben Christensen",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "17.0.0.0",
+  "application": "17.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://SDSeminar.com/help/",
+  "showMyCode": true,
+  "runtime": "6.0"
+}

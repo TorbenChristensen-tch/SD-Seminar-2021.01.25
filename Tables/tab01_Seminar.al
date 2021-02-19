@@ -4,7 +4,9 @@ table 50101 "CSD Seminar"
 {
     Caption = 'Seminar';
     DataClassification = AccountData;
-
+    DrillDownPageId = "CSD Seminar List";
+    LookupPageId = "CSD Seminar List";
+    
     fields
     {
         field(10; "No."; Code[20])
@@ -104,7 +106,6 @@ table 50101 "CSD Seminar"
             DataClassification = AccountData;
         }
     }
-
     keys
     {
         key(PK; "No.")

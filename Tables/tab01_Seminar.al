@@ -6,7 +6,7 @@ table 50101 "CSD Seminar"
     DataClassification = AccountData;
     DrillDownPageId = "CSD Seminar List";
     LookupPageId = "CSD Seminar List";
-    
+
     fields
     {
         field(10; "No."; Code[20])

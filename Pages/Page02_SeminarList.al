@@ -64,8 +64,8 @@ page 50102 "CSD Seminar List"
                 action("Co&mments")
                 {
                     Caption = 'Co&mments';
-                    // RunObject = Page "CSD Seminar Comment Sheet";
-                    // RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
+                    RunObject = Page "CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name" = const(Seminar), "No." = field("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = True;

@@ -57,7 +57,7 @@ page 50101 "CSD Seminar Card"
             group(Invoicing)
             {
                 caption = 'Invoicing';
-                field("Gen. Prod.Posting Group"; rec."Gen. Prod.Posting Group")
+                field("Gen. Prod.Posting Group"; rec."Gen. Prod. Posting Group")
                 {
                     ApplicationArea = all;
                 }

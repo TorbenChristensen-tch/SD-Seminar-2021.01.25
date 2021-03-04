@@ -69,8 +69,8 @@ table 50101 "CSD Seminar"
         {
             Caption = 'Comment';
             Editable = false;
-            //FieldClass = FlowField;
-            //CalcFormula = exist("CSD Seminar Comment Line" where("Table Name" = const("Seminar"), "No." = field("No.")));
+            FieldClass = FlowField;
+            CalcFormula = exist("CSD Seminar Comment Line" where("Table Name" = const("Seminar"), "No." = field("No.")));
             //DataClassification = AccountData;
         }
         field(100; "Seminar Price"; Decimal)
@@ -79,15 +79,15 @@ table 50101 "CSD Seminar"
             AutoFormatType = 1;
             DataClassification = AccountData;
         }
-        field(110; "Gen. Prod.Posting Group"; Code[20])
+        field(110; "Gen. Prod. Posting Group"; Code[20])
         {
             Caption = 'Gen. Prod. Posting Group';
             TableRelation = "Gen. Product Posting Group";
             DataClassification = AccountData;
             trigger onvalidate();
             begin
-                if xrec."Gen. Prod.Posting Group" <> Rec."Gen. Prod.Posting Group" then begin
-                    if GenProdPostingGroup.ValidateVatProdPostingGroup(GenProdPostingGroup, Rec."Gen. Prod.Posting Group") then
+                if xrec."Gen. Prod. Posting Group" <> Rec."Gen. Prod. Posting Group" then begin
+                    if GenProdPostingGroup.ValidateVatProdPostingGroup(GenProdPostingGroup, Rec."Gen. Prod. Posting Group") then
                         Validate(Rec."VAT Prod. Posting Group", GenProdPostingGroup."Def. VAT Prod. Posting Group");
                 end;
             end;
@@ -142,11 +142,13 @@ table 50101 "CSD Seminar"
     end;
 
     trigger OnDelete()
+    var
+        CommentLine: Record "CSD Seminar Comment Line";
     begin
-        //CommentLine.Reset;
-        //CommentLine.setrange("Table Name",CommentLine."Table Name"::Seminar);
-        //CommentLine.setrange("No.","No.");
-        // CommentLine.Deleteall;
+        CommentLine.Reset;
+        CommentLine.setrange("Table Name", CommentLine."Table Name"::Seminar);
+        CommentLine.setrange("No.", "No.");
+        CommentLine.Deleteall;
     end;
 
     procedure AssistEdit(): Boolean;

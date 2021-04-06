@@ -1,6 +1,8 @@
 table 50104 "CSD Seminar Comment Line"
 // CSD1.00 2021.02.23 Torben Christensen
-// Chapter 5 - Lab 5.3
+// Chapter 5 - Lab 5-3
+// CSD1.00 2021.02.23 Torben Christensen
+// Chapter 7 - Lab 3-2
 {
     caption = 'Seminar Comment Line';
     LookupPageId = "CSD Seminar Comment List";
@@ -25,7 +27,12 @@ table 50104 "CSD Seminar Comment Line"
         field(30; "No."; Code[20])
         {
             Caption = 'No.".';
-            TableRelation = IF ("Table Name" = Const(Seminar)) "CSD Seminar";
+            TableRelation =
+            IF ("Table Name" = Const(Seminar)) "CSD Seminar"
+            else
+            if ("Table Name" = Const("Seminar Registration Header")) "CSD Seminar Reg. Header"
+            else
+            if ("Table Name" = Const("Posted Seminar Reg. Header")) "CSD Posted Seminar Reg. Header";
             DataClassification = AccountData;
         }
         field(40; "Line No."; Integer)

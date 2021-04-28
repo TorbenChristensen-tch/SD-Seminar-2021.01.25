@@ -3,6 +3,8 @@ page 50134 "CSD Posted Seminar Reg."
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 7 - Lab 3
     //     - Created new page
+    // Chapter 8 - Lab 2 - 4
+    // Added Action Navigat    
 
     Caption = 'Seminar Registration';
     Editable = false;
@@ -115,7 +117,6 @@ page 50134 "CSD Posted Seminar Reg."
             }
         }
     }
-
     actions
     {
         area(navigation)
@@ -138,6 +139,23 @@ page 50134 "CSD Posted Seminar Reg."
                     RunObject = Page 50139;
                     RunPageLink = "Document No." = Field("No.");
                 }
+            }
+        }
+        Area(Processing)
+        {
+            action("&Navigate")
+            {
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                Var
+                    Navigate: Page Navigate;
+                begin
+                    Navigate.SetDoc(Rec."Posting Date", Rec."No.");
+                    Navigate.run;
+                end;
             }
         }
     }

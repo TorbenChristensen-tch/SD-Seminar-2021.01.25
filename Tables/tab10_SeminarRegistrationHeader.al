@@ -79,7 +79,7 @@ table 50110 "CSD Seminar Reg. Header"
                 CalcFields("Instructor Name");
             end;
         }
-        field(6; "Instructor Name"; Text[50])
+        field(6; "Instructor Name"; Text[100])
         {
             Caption = 'Instructor Name';
             CalcFormula = Lookup(Resource.Name where("No." = Field("Instructor Resource No."),
@@ -342,7 +342,7 @@ table 50110 "CSD Seminar Reg. Header"
     trigger OnDelete();
     begin
         if CurrFieldNo <> 0 then
-            testfield(status,status::Canceled);
+            testfield(status, status::Canceled);
         SeminarRegLine.Reset();
         SeminarRegLine.SETRANGE("Document No.", "No.");
         SeminarRegLine.SETRANGE(Registered, true);
@@ -373,6 +373,11 @@ table 50110 "CSD Seminar Reg. Header"
             SeminarSetup.TestField("Seminar Registration Nos.");
             NoSeriesMgt.InitSeries(SeminarSetup."Seminar Registration Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
+        // >> Lab 8 1-1
+        if GetFilter("Seminar No.") <> '' then
+            if GetRangeMin("Seminar No.") = GetRangeMax("Seminar No.") then
+                Validate("Seminar No.", GetRangeMin("Seminar No."));
+        // << Lab 8 1-1
     end;
 
     procedure AssistEdit(OldSeminarRegHeader: Record "CSD Seminar Reg. Header"): Boolean;

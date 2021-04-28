@@ -3,8 +3,12 @@ table 50118 "CSD Posted Seminar Reg. Header"
     // CSD1.00 2021.03.11 Torben Christensen
     // Chapter 7 - Lab 3-1
     //  - Created new table
+    // Chapter 8 - Lab 2 - 3
+    // Added LookupPageId & DrilldownPageId properties    
 
     Caption = 'Posted Seminar Registraion Header';
+    LookupPageId = "CSD Posted Seminar Reg. List";
+    DrillDownPageId = "CSD Posted Seminar Reg. List";
     fields
     {
         field(1; "No."; Code[20])
@@ -34,7 +38,7 @@ table 50118 "CSD Posted Seminar Reg. Header"
             TableRelation = Resource where(Type = const(Person));
             DataClassification = AccountData;
         }
-        field(6; "Instructor Name"; Text[50])
+        field(6; "Instructor Name"; Text[100])
         {
             Caption = 'Instructor Name';
             CalcFormula = Lookup(Resource.Name where("No." = Field("Instructor Resource No."),

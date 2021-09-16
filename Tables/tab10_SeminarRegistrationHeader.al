@@ -3,6 +3,8 @@ table 50110 "CSD Seminar Reg. Header"
     // CSD1.00 2021.03.03 Torben Christensen
     // Chapter 6 - Lab 1-3 & Lab 1-4
     //  - Created new table
+    // Chapter 9 - Lab 1-1
+    // - Added new field "No. Printe    
 
     Caption = 'Seminar Registraion Header';
     fields
@@ -309,7 +311,11 @@ table 50110 "CSD Seminar Reg. Header"
             Caption = 'Posting No.';
             DataClassification = AccountData;
         }
-
+        field(40; "No. Printed"; Integer)
+        {
+            caption = 'No. Printed';
+            DataClassification = AccountData;
+        }
     }
 
     keys
